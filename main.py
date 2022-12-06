@@ -1,7 +1,5 @@
-import time
 from math import ceil
 from random import seed, randint
-from typing import Set, Tuple
 
 seed(10)
 
