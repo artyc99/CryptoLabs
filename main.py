@@ -75,6 +75,9 @@ class BitNumber:
         self.__len += len(other)
         return self.__class__(bin(self.__int_number << len(other) | int(other))[2:])
 
+    def __xor__(self, other):
+        return self.__class__(bin(self.__int_number ^ int(other))[2:])
+
     def __int__(self):
         return self.__int_number
 
@@ -118,7 +121,7 @@ class BitNumber:
         return bin(self.__int_number)
 
 
-def prime_divisors(number: int) -> set[tuple[int, int]]:
+def prime_divisors(number: int):
     divisors_pair = set()
     divisors = set()
 
@@ -319,7 +322,7 @@ def main():
     # print(bin(bit.get_bit(1)))
     # print(bin(bit.rounded_move_right(5)))
 
-    rsa = RSA(gen_range=10000)
+    # rsa = RSA(gen_range=10000)
 
     # start = time.time()
     # rsa.gen_primary(100000)
@@ -344,10 +347,9 @@ def main():
     #
     # print(decoded)
 
-    d = BitNumber('1010')
-    a = BitNumber('1010')
-    c = d + a
-    print(c)
+    d = BitNumber('1011101')
+    a = BitNumber('1011101')
+    print(d.cut_off(3))
 
     # #
     # candidates = prime_divisors(rsa.n)
